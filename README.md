@@ -33,9 +33,7 @@ Run “Audit-MailGroups.ps1” script is source environment to audit the existin
 * $IncludeGroupMembers = $true / $false
 * $IncludeNestedGroups = $true / $false
 
-Datasets will be exported into separate CSV files and referenced throughout the mail group migration process. Exported CSV files should be preserved as a "point-in-time" snapshot and can be used for auditing or any roll-back contingencies. Setting preference variable “$IncludeGroupMembers = $false” will allow for manual analysis and/or batch filtering of the mail groups dataset before auditing the mail group members. Defined filter criteria must be enclosed in single quotes as literal syntax, but not all attributes support the filter parameter.
-https://docs.microsoft.com/en-us/powershell/exchange/exchange-server/recipient-filters/filter-properties?view=exchange-ps
-Dynamic distribution groups do not synchronize to O365 and must be manually re-provisioned using available attribute criteria in EXO.  In the meantime, dynamic distribution groups can remain on-premises so that they can continue to leverage OU as filter or recipient criteria. On-premises permission groups must be mail-enabled and synchronized to EXO to preserve mailbox or delegate permissions and can then be migrated like any other mail group.
+Datasets will be exported into separate CSV files and referenced throughout the mail group migration process. Exported CSV files should be preserved as a "point-in-time" snapshot and can be used for auditing or any roll-back contingencies. Setting preference variable “$IncludeGroupMembers = $false” will allow for manual analysis and/or batch filtering of the mail groups dataset before auditing the mail group members. Defined filter criteria must be enclosed in single quotes as literal syntax, but not all attributes support the filter parameter. Dynamic distribution groups do not synchronize to O365 and must be manually re-provisioned using available attribute criteria in EXO. In the meantime, dynamic distribution groups can remain on-premises so that they can continue to leverage OU as filter or recipient criteria. On-premises permission groups must be mail-enabled and synchronized to EXO to preserve mailbox or delegate permissions and can then be migrated like any other mail group.
 
 STEP 3: AUDIT SOURCE MAIL GROUP MEMBERS
 
@@ -117,5 +115,5 @@ If or when source mail groups must be deleted, then mail contacts can be back-fi
 *	$DisableMailSecurityGroups = $true / $false
 *	$Debug = $true / $false
 
-Script will deletes conflicting distribution groups and disables conflicting mail-enabled security groups so that contact can be created using the primary email address. Contacts should be created in an OU that is excluded from AAD Connect or set as "NoSync" using the preference variables.
+Script will delete conflicting distribution groups and disable conflicting mail-enabled security groups so that contact can be created using the primary email address. Contacts should be created in an OU that is excluded from AAD Connect or set as "NoSync" using the preference variables.
 
