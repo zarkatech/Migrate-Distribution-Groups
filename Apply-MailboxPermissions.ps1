@@ -1,7 +1,7 @@
 ﻿$ScriptInfo = @"
 ================================================================================
 Apply-MailboxPermissions.ps1 | v3.2
-by Roman Zarka
+by Roman Zarka | github.com/zarkatech
 ================================================================================
 SAMPLE SCRIPT IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND.
 "@; cls; Write-Host "$ScriptInfo`n" -ForegroundColor White
