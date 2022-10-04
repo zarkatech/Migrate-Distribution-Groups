@@ -106,7 +106,7 @@ Run “Apply-MailboxPermissions.ps1” in target environment to re-apply mailbox
 
 STEP 8: BACK-FILL MAIL GROUP CONTACTS
 
-If or when source mail groups must be deleted, then mail contacts can be back-filled based on audit data collected during target group creation or cut-over. Script offers the following preference variables which can be toggled or customized based on scenario requirements:
+If or when source mail groups must be deleted, run "Create-SourceContants.ps1" to backfill mail contacts based on audit data collected during target group creation or cut-over. Script offers the following preference variables which can be toggled or customized based on scenario requirements:
 * $BatchName = short string to identify batch process, log, or export content
 * $TargetOU = organizational unit to create mail contacts
 * $NoSyncAttribute = attribute name used by AAD Connect for account filtering
