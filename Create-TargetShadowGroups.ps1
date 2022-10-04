@@ -1,7 +1,7 @@
 ﻿$ScriptInfo = @"
 ================================================================================
 Create-TargetShadowGroups.ps1 | v3.2.5 DRAFT
-by Roman Zarka | Microsoft Services
+by Roman Zarka | github.com/zarkatech
 ================================================================================
 SAMPLE SCRIPT IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND.
 "@; cls; Write-Host "$ScriptInfo`n" -ForegroundColor White
@@ -164,7 +164,8 @@ If (($CutoverShadowGroups) -and ($Debug -eq $false)) {
             If ($Proxy -notlike "smtp:*" -and $Proxy -notlike "x500:*") { Continue }
             If ($Proxy -like "smtp:*") {
                 $CheckDomain = ($Proxy.Split("@"))[1]
-                If ($AcceptedDomains -notcontains $CheckDomain) { Continue } }            If ($TargetAddresses -notcontains $Proxy) {
+                If ($AcceptedDomains -notcontains $CheckDomain) { Continue } }
+            If ($TargetAddresses -notcontains $Proxy) {
                 $RunCmd = 'Set-DistributionGroup ' + "`"$($Group.PrimarySmtpAddress)`"" + ' -EmailAddresses @{Add="' + "$Proxy" + '"}'
                 Write-Log "DEBUG: $RunCmd"; Invoke-Expression $RunCmd -ErrorVariable CmdError; If ($CmdError -ne "") { Write-Log "ERROR: $CmdError" } } }
         ForEach ($Proxy in $TargetAddresses) {
