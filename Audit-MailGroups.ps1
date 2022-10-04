@@ -1,7 +1,7 @@
 $ScriptInfo = @"
 ================================================================================
 Audit-MailGroups.ps1 | v3.2.3
-by Roman Zarka | Microsoft Services
+by Roman Zarka | github.com/zarkatech
 ================================================================================
 SAMPLE SCRIPT IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND.
 "@; cls; Write-Host "$ScriptInfo`n" -ForegroundColor White
