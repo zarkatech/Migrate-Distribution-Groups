@@ -1,7 +1,7 @@
 ﻿$ScriptInfo = @"
 ================================================================================
 Create-TargetMailGroups.ps1 | v3.2.2
-by Roman Zarka | Microsoft Services
+by Roman Zarka | github.com/zarkatech
 ================================================================================
 SAMPLE SCRIPT IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND.
 "@; cls; Write-Host "$ScriptInfo`n" -ForegroundColor White
@@ -99,7 +99,8 @@ ForEach ($Group in $MailGroups) {
         If ($Proxy -notlike "smtp:*" -and $Proxy -notlike "x500:*") { Continue }
         If ($Proxy -like "smtp:*") {
             $CheckDomain = ($Proxy.Split("@"))[1]
-            If ($AcceptedDomains -notcontains $CheckDomain) { Continue } }        If ($TargetAddresses -notcontains $Proxy) {
+            If ($AcceptedDomains -notcontains $CheckDomain) { Continue } }
+        If ($TargetAddresses -notcontains $Proxy) {
             $RunCmd = 'Set-DistributionGroup '+"`"$($Group.PrimarySmtpAddress)`""+' -EmailAddresses @{Add="'+"$Proxy"+'"}'
             Write-Log "DEBUG: $RunCmd"; If ($Debug) { $RunCmd = $RunCmd + ' -WhatIf' }
             Invoke-Expression $RunCmd -ErrorVariable CmdError; If ($CmdError -ne "") { Write-Log "ERROR: $CmdError" } } }
