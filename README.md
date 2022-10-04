@@ -2,7 +2,7 @@
 
 INTRODUCTION
 
-Migrating distribution groups from on-premises Exchange or between Exchange Online tenants can be categorized into four distict types: static distribution groups, mail-enabled security groups, dynamic distribution groups, and static permission groups.  Each group type requires a slightly different approach, but it is strongly recommended that all groups be migrated at the same time to mitigate issues related to group nesting, delegate permissions, mail flow, and overall user experience. If groups must be migrated in batches, then script logic can help facilitate analysis and processing of which groups can be migrated and when they should be migrated.  It is also assumed that mailbox migrations have already occured.
+Migrating distribution groups from on-premises Exchange or between Exchange Online tenants can be categorized into four distinct types: static distribution groups, mail-enabled security groups, dynamic distribution groups, and static permission groups.  Each group type requires a slightly different approach, but it is strongly recommended that all groups be migrated at the same time to mitigate issues related to group nesting, delegate permissions, mail flow, and overall user experience. If groups must be migrated in batches, then script logic can help facilitate analysis and processing of which groups can be migrated and when they should be migrated.  It is also assumed that mailbox migrations have already occured.
 
 STEP 1: AUDIT TARGET MAILBOX PERMISSIONS
 
