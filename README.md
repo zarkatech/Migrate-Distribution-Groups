@@ -1,4 +1,5 @@
 # Migrate-Distribution-Groups
+## PowerShell scripts to audit source distribution groups, deprovision and recreate them in target environment, re-apply associated mailbox permsissions, and back-fill a contact.
 
 INTRODUCTION
 
